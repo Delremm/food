@@ -1,0 +1,13 @@
+Django==1.6.5
+Pygments==1.6
+South==0.8.4
+bpython==0.13
+django-allauth==0.16.1
+django-flatblocks==0.8
+django-sitemetrics==0.4.2
+djangorestframework==2.3.13
+djrill==1.0.0
+oauthlib==0.6.1
+python3-openid==3.0.4
+requests==2.3.0
+requests-oauthlib==0.4.0
