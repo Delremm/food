@@ -1,0 +1,54 @@
+.top50 { margin-top:50px; }
+.top70 { margin-top:70px; }
+.top100 { margin-top:100px; }
+.top150 { margin-top:150px; }
+.top10 { margin-top:10px; }
+.top30 { margin-top:30px; }
+
+/* ==========================================================================
+   Wrap Sections
+   ========================================================================== */
+
+#headerwrap {
+    background: url(http://s23.postimg.org/y7nv2camj/Cooking_image.jpg) no-repeat center top;
+    margin-top: -10px;
+    padding-top:20px;
+    text-align:center;
+    background-attachment: relative;
+    background-position: center center;
+    min-height: 700px;
+    width: 100%;
+    
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#headerwrap h1 {
+    color: white;
+    font-size: 140px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+#headerwrap h2 {
+    color: white;
+    font-size: 50px;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+
+#headerwrap h3 {
+    color: white;
+    font-weight: 100;
+}
+#headerwrap h4 {
+    color: white;
+    font-weight: 100;
+}

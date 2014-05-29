@@ -1,0 +1,66 @@
+{% load i18n %}
+{% load sitemetrics %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{{default_title}}{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="{% block description %}{% endblock %}" />
+        <meta name="keywords" content="{% block keywords %}jj{% endblock %}" />
+        <meta name="viewport" content="{% block viewport %}width=device-width, initial-scale=1.0{% endblock %}">
+
+        {% block favicon %}
+            <link rel="shortcut icon" href="{% static "frontend/favicon.ico" %}" />
+        {% endblock %}
+
+        {% block styles %}
+            <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="{% static "frontend/css/sticky-footer-navbar.css" %}" />
+            <link rel="stylesheet" type="text/css" href="{% static "frontend/css/styles.css" %}" />
+        {% endblock %}
+
+        {# Additional CSS, meta - specific to certain pages #}
+        {% block extrahead %}{% endblock %}
+    </head>
+
+    <body {% block body_attrs %}{% endblock %}>
+        {# Main content goes in this 'layout' block #}
+        {% block layout %}
+            {% block content_wrapper %}
+                <div id="wrap">
+                    {% block header %}
+                        {% include 'partials/header.html' %}
+                    {% endblock %}
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            {% endblock %}
+            {% include "partials/footer.html" %}
+        {% endblock %}
+
+        {% block tracking %}
+            <!-- analytics -->
+            {# Default to using Google analytics #}
+            {% sitemetrics %}
+        {% endblock %}
+
+        {% block cdn_scripts %}
+            <!-- jQuery -->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+            <!-- Twitter Bootstrap CDN-->
+            <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        {% endblock %}
+
+        {# Block for body onload functions #}
+        <script type="text/javascript">
+            {% block extrajs %}{% endblock %}
+            $(function() {
+                {% block onbodyload %}
+                {% endblock %}
+            });
+        </script>
+    </body>
+</html>

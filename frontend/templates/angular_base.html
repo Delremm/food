@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{# Additional JS scripts #}
+{% block extrascripts %}
+
+    <!-- Angular lib-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.js"></script>
+    <!-- if AngularJS fails to load fallback a local version -->
+    <script>window.angular || document.write('<script src="{% static "frontend/js/angular/angular.min.js" %}"><\/script>');</script>
+    <!-- custom scripts -->
+    <script src="{% static "frontend/js/app.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "frontend/js/controllers.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "frontend/js/directives.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "frontend/js/services.js" %}" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    </script>
+{% endblock %}

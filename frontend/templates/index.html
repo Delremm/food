@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load flatblock_tags %}
+{% load webdesign %}
+
+{% block content %}
+<div id="headerwrap">
+        <div class="container">
+            <div class="row top100">
+                <div class="col-lg-3"><h2>4meal</h2></div>
+                <div class="col-lg-3 col-lg-offset-6"><h3>Открытие июль-август 2014г.</h3></div>
+            </div>
+            <br>
+            
+            <div class="row">
+                <h2>Доставка здоровых обедов в Перми.</h2>
+                <h4>Мы ваш персональный диетолог. Мы считаем калории за вас.</h4>
+                <div>
+                    {% if user.is_anonymous %}
+                        {% include 'emailer/email_form.html' %}
+                    {% endif %}
+                </div>
+            </div>
+        </div><!-- /container -->
+    </div>
+    <div class="container">
+        <h2>Умный сервис доставки здоровой пищи в Перми. Мы считаем калории за вас.<h2>
+        <h2>Здоровое питание в Перми</h2>
+
+        <h3>Рацион составленный профессональными диетологами<h3>
+        <h3>Подсчет каллорий, микро и макро-нутриентов.</h3>
+
+        <h3>Открытие июль-август 2014</h3>
+
+        {% lorem 10 p %}
+
+    </div>
+{% endblock %}
+{% block onbodyload %}
+    {% include 'emailer/script.js' %}
+{% endblock %}
