@@ -26,10 +26,11 @@ env.project_dir = env.home + '/webapps/' + PROJECT_NAME
 env.supervisor_dir = env.home + '/webapps/supervisor'
 env.virtualenv_dir = VIRTUALENVS
 env.supervisor_ve_dir = env.virtualenv_dir + '/supervisor'
-DJANGO_SETTINGS_MODULE='food.settings.production'
+DJANGO_SETTINGS_MODULE = 'food.settings.production'
+env.settings_mode = 'production'
 
 
-def upload_gunicorn(settings_mode='production'):
+def upload_gunicorn(settings_mode=env.settings_mode):
     # upload template to supervisor conf
     upload_template(
         'fabsettings/templates/gunicorn.conf',
@@ -133,13 +134,12 @@ def install_supervisor():
             run('./start_supervisor.sh stop && ./start_supervisor.sh start')
 
 
-def sync_app():
-
-    with cd(env.project_dir), shell_env(DJANGO_SETTINGS_MODULE=DJANGO_SETTINGS_MODULE):
+def sync_app(settings_mode=env.settings_mode):
+    with cd(env.project_dir), shell_env(DJANGO_SETTINGS_MODULE='food.settings.%s' % settings_mode):
         #_ve_run(env.project, "easy_install -i http://downloads.egenix.com/python/index/ucs4/ egenix-mx-base")
-        _ve_run(env.project, "python manage.py syncdb")
-        _ve_run(env.project, "python manage.py migrate")
-        _ve_run(env.project, "python manage.py collectstatic")
+        _ve_run(env.project, "python3 manage.py syncdb")
+        _ve_run(env.project, "python3 manage.py migrate")
+        _ve_run(env.project, "python3 manage.py collectstatic")
 
 
 def reload_app(arg=None):
