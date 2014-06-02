@@ -153,7 +153,6 @@ def reload_app(arg=None):
         with cd(env.project_dir):
             _ve_run(env.project, "pip3 install -r requirements.txt")
             #_ve_run(env.project, "python manage.py createcachetable tecon_cache_table")
-        sync_app()
 
     restart_app()
 
