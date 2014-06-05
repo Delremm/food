@@ -16,7 +16,7 @@ except ImportError:
 env.hosts          = [WF_HOST]
 env.user = USER
 #env.password = PASSWORD
-env.use_ssh_config = True
+#env.use_ssh_config = True
 env.home = "/home/%s" % USER
 env.project = PROJECT_NAME
 env.app_port = APP_PORT

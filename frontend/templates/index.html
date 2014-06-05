@@ -3,7 +3,7 @@
 {% load webdesign %}
 
 {% block content %}
-<div id="headerwrap">
+    <div id="headerwrap">
         <div class="container">
             <div class="row top100">
                 <div class="col-lg-3"><h2>4meal</h2></div>
@@ -12,17 +12,22 @@
             <br>
             
             <div class="row">
-                <h2>Доставка здоровых обедов в Перми.</h2>
-                <h4>Мы ваш персональный диетолог. Мы считаем калории за вас.</h4>
+                <h2>{% lorem 3 w %}</h2>
+                <h4>{% lorem 1 p %}</h4>
                 <div>
                     {% if user.is_anonymous %}
                         {% include 'emailer/email_form.html' %}
                     {% endif %}
                 </div>
             </div>
-        </div><!-- /container -->
+            <div>
+            <div id="scroll_down"><span class="glyphicon glyphicon-link"></span> HELL</div>
+            </div>
+        </div>
     </div>
-    <div class="container">
+
+
+    <div class="container" id="main_text">
         <h2>Умный сервис доставки здоровой пищи в Перми. Мы считаем калории за вас.<h2>
         <h2>Здоровое питание в Перми</h2>
 
@@ -35,6 +40,22 @@
 
     </div>
 {% endblock %}
+{% block extrajs %}
+{% endblock %}
 {% block onbodyload %}
     {% include 'emailer/script.js' %}
+    $('#scroll_down').click(function() {
+        $('html, body').animate({
+            scrollTop: $("#main_text").offset().top
+        }, 500);
+    });
+    
+    //jQuery to collapse the navbar on scroll
+    $(window).scroll(function() {
+        if ($(".navbar").offset().top > 50) {
+            $(".navbar-fixed-top").addClass("top-nav-collapse");
+        } else {
+            $(".navbar-fixed-top").removeClass("top-nav-collapse");
+        }
+    });
 {% endblock %}

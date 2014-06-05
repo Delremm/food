@@ -20,6 +20,8 @@
             <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="{% static "frontend/css/sticky-footer-navbar.css" %}" />
             <link rel="stylesheet" type="text/css" href="{% static "frontend/css/styles.css" %}" />
+            <!-- <link rel="stylesheet/less" type="text/css" href="{% static "frontend/less/magic-bootstrap.less" %}" /> -->
+            <!-- <link rel="stylesheet" type="text/css" href="{% static "frontend/css/magic-bootstrap.css" %}" /> -->
         {% endblock %}
 
         {# Additional CSS, meta - specific to certain pages #}
@@ -29,16 +31,14 @@
     <body {% block body_attrs %}{% endblock %}>
         {# Main content goes in this 'layout' block #}
         {% block layout %}
-            {% block content_wrapper %}
-                <div id="wrap">
-                    {% block header %}
-                        {% include 'partials/header.html' %}
-                    {% endblock %}
-                    {% block content %}
-                    {% endblock %}
-                </div>
+            {% block header %}
+                {% include 'partials/header.html' %}
             {% endblock %}
-            {% include "partials/footer.html" %}
+            {% block content %}
+            {% endblock %}
+            {% block footer %}
+                {% include "partials/footer.html" %}
+            {% endblock %}
         {% endblock %}
 
         {% block tracking %}
@@ -52,6 +52,8 @@
             <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
             <!-- Twitter Bootstrap CDN-->
             <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+            <!-- Less CDN-->
+            <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>
         {% endblock %}
 
         {# Block for body onload functions #}
