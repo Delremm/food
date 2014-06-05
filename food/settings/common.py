@@ -95,7 +95,7 @@ MEDIA_URL    = '/media/'
 STATIC_URL = '/static/'
 
 SITE_CONTEXT = {}
-SITE_CONTEXT['default_title'] = '4meal.ru'
+SITE_CONTEXT['default_title'] = 'Мудрый обед'
 
 
 # "djrill" EMAILS   mandrillapp.com

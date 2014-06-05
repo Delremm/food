@@ -1,14 +1,35 @@
-<div id="footer">
-    {% block footer %}
-        <div class="container">
-            <ul class="nav navbar-nav">  
-
-                <li><a href="/about/">{{ current_site }}</a></li>
-            </ul>
-            <ul class="nav navbar-nav pull-right">  
-
-                <li class="text-right"><a href="#">@2014</a></li>
-            </ul>
-        </div>
-    {% endblock %}
-</div>
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="social list-inline ">
+          <li>
+            <a class="vkontakte" href="http://www.vk.com" title="Vkontakte">
+              <i class="fa fa-vk fa-2x"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter" href="http://www.twitter.com" title="Twitter">
+              <i class="fa fa-twitter fa-2x"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook" href="http://www.facebook.com" title="Facebook">
+              <i class="fa fa-facebook fa-2x"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google-plus" href="http://www.plus.google.com" title="Google+">
+              <i class="fa fa-google-plus fa-2x"></i>
+            </a>
+          </li>
+        </ul>
+        <p class="copyright"> 
+          Создано <a href="{% url 'home' %}">командой разработчиков</a> wisemeal &middot; 
+          2014 год &middot; 
+          <a href="{% url 'home' %}">{{ current_site }}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
