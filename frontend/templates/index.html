@@ -6,14 +6,13 @@
     <div id="headerwrap">
         <div class="container">
             <div class="row top100">
-                <div class="col-lg-3"><h2>4meal</h2></div>
-                <div class="col-lg-3 col-lg-offset-6"><h3>Открытие июль-август 2014г.</h3></div>
+              {% flatblock "index_head_row1" %}
             </div>
             <br>
-            
+            <div class="row textboard-grey">
+                {% flatblock "index_head_row2" %}
+            </div>
             <div class="row">
-                <h2>{% lorem 3 w %}</h2>
-                <h4>{% lorem 1 p %}</h4>
                 <div>
                     {% if user.is_anonymous %}
                         {% include 'emailer/email_form.html' %}
@@ -21,9 +20,9 @@
                 </div>
             </div>
             <div class="page-scroll">
-                <a href="#about" class="btn btn-circle">
-                    <i class="fa fa-angle-double-down animated"></i>
-                </a>
+                <div class="btn btn-circle page-scroll">
+                    <i class="fa fa-angle-double-down animated "></i>
+                </div>
             </div>
         </div>
     </div>
