@@ -13,3 +13,8 @@ oauthlib==0.6.1
 python3-openid==3.0.4
 requests==2.3.0
 requests-oauthlib==0.4.0
+
+Pillow==2.4.0
+-e git+https://github.com/stefanfoulis/django-filer.git#egg=django_filer-origin/HEAD
+-e git+https://github.com/django-mptt/django-mptt.git#egg=django_mptt-origin/HEAD
+easy-thumbnails==2.0.1

@@ -1,8 +1,16 @@
 {% extends "base.html" %}
 {% load flatblock_tags %}
 {% load webdesign %}
+{% load staticfiles %}
 
+
+{% block extrastyles %}
+<link rel="stylesheet" type="text/css" href="{% static "frontend/css/index.css" %}" />
+{% endblock %}
+
+{% block navbarstyle %} no {% endblock %}
 {% block content %}
+
     <div id="headerwrap">
         <div class="container">
             <div class="row top100">
@@ -12,12 +20,22 @@
             <div class="row textboard-grey">
                 {% flatblock "index_head_row2" %}
             </div>
+            <br>
             <div class="row">
+              <div class="col-lg-8">
                 <div>
                     {% if user.is_anonymous %}
                         {% include 'emailer/email_form.html' %}
                     {% endif %}
                 </div>
+              </div>
+              <div class="col-lg-4">
+              <div>
+
+
+              </div>
+                {% include 'partials/socials.html' %}
+              </div>
             </div>
             <div class="page-scroll">
                 <div class="btn btn-circle page-scroll">
@@ -31,30 +49,141 @@
       <div class="container">
         <div class="content text-center">
           <div class="heading">
-            <h2>What we love doing.</h2>
+            <h2>Что мы делаем</h2>
             <div class="border"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, alias enim placeat earum quos ab.</p>
+            <p class="lead"><b>Мудрый обед </b>- это сервис доставки здоровой еды в Перми, сочетающий в себе абсолютный контроль над калорийностью и нутриентами пищи, свежие продукты и использование самых признаных рецептов. Мы позаботимся о планировании, подсчете питательных веществ и грамотном приготовлении, так что вы насладитесь здоровой едой без лишних усилий.</p>
           </div>
+        </div>
+      </div>
+      </section>
+    <section id="how" class="page">
+      <div class="container">
+        <div class="content text-center">
           <div class="row">
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="300">
               <i class="fa fa-globe fa-5x"></i>
-              <h3><a href="#">Web Design</a></h3>
+              <h3><a href="#">1. Вы расчитываете суточные потребности в пище</a></h3>
               <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
             </div>
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="600">
               <i class="fa fa-cloud fa-5x"></i>
-              <h3><a href="#">Web Development</a></h3>
+              <h3><a href="#">2. Выбираете  рацион на следущий день</a></h3>
               <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque lau dantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.</p>
             </div>
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="900">
               <i class="fa fa-mobile fa-5x"></i>
-              <h3><a href="#">Mobile Development</a></h3>
+              <h3><a href="#">3. Выбираете время и место доставки</a></h3>
               <p>Aliquam aliquet, est a ullamcorper condimentum, tellus nulla fringilla elit, a iaculis nulla turpis sed wisi. Fusce volutpat. Etiam sodales ante id nunc. Proin ornare dignissim lacus.</p>
+            </div>
+          </div>
+          <div class="row">
+          <button class="btn btn-danger btn-lg">Заказать</button>
+          </div>
+          <br>
+        </div>
+      </div>
+    </section>
+
+
+        <section id="compare" class="page">
+      <div class="container">
+        <div class="content text-center">
+          <div class="heading">
+            <h2>Сравните нас с остальными</h2>
+            <div class="border"></div>
+            <p><i>"Я то, что я ем"</i> гласит одна поговорка. Не стоит это забывать. А существующие в Перми сервисы доставки еды настолько сосредоточились на извлечении прибыли, что совершенно забыли о здоровье покупателей.</p>
+            <p>Наш сервис <b>{{ default_title }}</b> ставит своей целью заботу о вашем здоровье. 
+          </div>
+          <div class="row">
+            <div class="col-md-7 teammate animated hiding" data-animation="fadeInLeft" data-delay="600">
+              <div class="photo-rounded img-thumbnail">
+                <img class="img-responsive" src="{% static 'frontend/img/Anaem.jpg' %}" alt="">
+              </div>
+              <div class="bio">
+                <h2>Мудрый обед</h2>
+                <div class="border"></div>
+                <p>Сбалансированная здоровая еда</p>
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>Калории</td>
+                      <td><i class="fa fa-check"></i></td>
+                      <td>Персонально</td>
+                    </tr>
+                    <tr>
+                      <td>Белки&middot;жиры&middot;углеводы</td>
+                      <td><i class="fa fa-check"></i></td>
+                      <td>Норма</td>
+                    </tr>
+                    <tr>
+                      <td>Клетчатка</td>
+                      <td><i class="fa fa-check"></i></td>
+                      <td>Норма</td>
+                    </tr>
+                    <tr>
+                      <td>Микроэлементы</td>
+                      <td><i class="fa fa-check"></i></td>
+                      <td>Норма</td>
+                    </tr>
+                    <tr>
+                      <td>Разнообразие</td>
+                      <td><i class="fa fa-check"></i></td>
+                      <td>Всегда что-то новое</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-md-5 teammate animated hiding" data-animation="fadeInUp" data-delay="300">
+              <div class="photo-rounded">
+                <img class="img-responsive img-thumbnail" src="{% static 'frontend/img/pizza1.jpg' %}" alt="">
+              </div>
+              <div class="bio">
+                <h3>Пиццерии, суши и другие сервисы доставки.</h3>
+                <div class="border"></div>
+                <p>Превалирует однообразие, регулярное потребление несёт угрозу для здоровья.</p>
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>Калории</td>
+                      <td><i class="fa fa-exclamation-triangle"></i></td>
+                      <td>Невозможно подсчитать, часто избыток</td>
+                    </tr>
+                    <tr>
+                      <td>Белки&middot;жиры&middot;углеводы</td>
+                      <td><i class="fa fa-exclamation-triangle"></i></td>
+                      <td>Недостаток белков, много жиров, много быстрых углеводов</td>
+                    </tr>
+                    <tr>
+                      <td>Клетчатка</td>
+                      <td><i class="fa fa-times"></i></td>
+                      <td>Почти нет клетчатки</td>
+                    </tr>
+                    <tr>
+                      <td>Микроэлементы</td>
+                      <td><i class="fa fa-times"></i></td>
+                      <td>Недостаточно</td>
+                    </tr>
+                    <tr>
+                      <td>Разнообразие</td>
+                      <td><i class="fa fa-times"></i></td>
+                      <td>Всегда одно и тоже</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+
+
+
+
+
+
     <section id="work" class="page">
       <div class="container">
         <div class="content text-center">
@@ -371,7 +500,7 @@
     {% include 'emailer/script.js' %}
     $('.page-scroll').click(function() {
         $('html, body').animate({
-            scrollTop: $("#main_text").offset().top
+            scrollTop: $("#services").offset().top-60
         }, 500);
     });
 

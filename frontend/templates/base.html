@@ -1,14 +1,18 @@
 {% load i18n %}
 {% load sitemetrics %}
 {% load staticfiles %}
+{% load flatblock_tags %}
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{% block title %}{{default_title}}{% endblock %}</title>
+        <title>{% block title %}{% flatblock 'default_title' using 'flatblocks/row.html' %}{% endblock %}</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="{% block description %}{% endblock %}" />
-        <meta name="keywords" content="{% block keywords %}jj{% endblock %}" />
+        <meta name="description" 
+            content="{% block description %}{% flatblock 'default_description' using 'flatblocks/row.html' %}{% endblock %}" />
+        <meta name="keywords" 
+            content="{% flatblock 'prepend_keywords' using 'flatblocks/row.html' %} {% block keywords %}{% endblock %}" />
         <meta name="viewport" content="{% block viewport %}width=device-width, initial-scale=1.0{% endblock %}">
 
         {% block favicon %}
@@ -16,13 +20,14 @@
         {% endblock %}
 
         {% block styles %}
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
             <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
             <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-            <!-- <link rel="stylesheet" type="text/css" href="{% static "frontend/css/sticky-footer-navbar.css" %}" /> -->
-            <link rel="stylesheet" type="text/css" href="{% static "frontend/css/styles.css" %}" />
-            <!-- <link rel="stylesheet/less" type="text/css" href="{% static "frontend/less/magic-bootstrap.less" %}" /> -->
-            <!-- <link rel="stylesheet" type="text/css" href="{% static "frontend/css/magic-bootstrap.css" %}" /> -->
+            <!-- <link rel="stylesheet" type="text/css" href="{% static "frontend/css/styles.css" %}" /> -->
+            <link rel="stylesheet" type="text/css" href="{% static "frontend/css/sticky-footer-navbar.css" %}" />
+            <link rel="stylesheet" type="text/css" href="{% static "frontend/css/animate.min.css" %}" />
         {% endblock %}
+        {% block extrastyles %}{% endblock %}
 
         {# Additional CSS, meta - specific to certain pages #}
         {% block extrahead %}{% endblock %}
@@ -34,8 +39,10 @@
             {% block header %}
                 {% include 'partials/header.html' %}
             {% endblock %}
+            <div id="wrap">
             {% block content %}
             {% endblock %}
+            </div>
             {% block footer %}
                 {% include "partials/footer.html" %}
             {% endblock %}

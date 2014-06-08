@@ -39,13 +39,18 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'django.contrib.flatpages',
+    'extended_flatpages',
     'sitemetrics',
     'flatblocks',
     'rest_framework',
+    'mptt',
     'django.contrib.webdesign',
     "djrill",
     'south',
     'emailer',
+    "easy_thumbnails",
+    "filer",
     'frontend',
 )
 
@@ -67,6 +72,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
 )
 
 ROOT_URLCONF = 'food.urls'
@@ -106,4 +112,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',
     )
+}
+
+
+SOUTH_MIGRATION_MODULES = {
+    'easy_thumbnails': 'easy_thumbnails.south_migrations',
 }

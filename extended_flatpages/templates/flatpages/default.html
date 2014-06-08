@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ flatpage.meta_title }}{% endblock %}
+{% block description %}{{ flatpage.meta_description }}{% endblock %}
+{% block keywords %}{{ flatpage.meta_keywords }}{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <h2>{{ flatpage.title }}</h2>
+        </div>
+        <div class="row">
+            {{ flatpage.content }}
+        </div>
+    </div>
+{% endblock %}
