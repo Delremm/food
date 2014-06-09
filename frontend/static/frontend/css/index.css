@@ -141,3 +141,6 @@
 }
 #compare .service i { margin-top: 60px }
 #compare .service:hover i { color: #71be3c }
+
+.hiding { opacity: 0 }
+.showing { opacity: 1 }
