@@ -11,6 +11,8 @@ from django.views.generic import TemplateView
 urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
+    url(r'^apps/macro/', include('macro.urls', namespace="macro")),
+    url(r'^api/apps/macro/', include('macro.api.urls', namespace='macro_api')),
     url(r'^emailer/', include('emailer.urls', namespace='emailer')),
 
     url(r'^admin/', include(admin.site.urls)),
