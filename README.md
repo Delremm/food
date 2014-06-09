@@ -27,3 +27,5 @@ goal
 design:
 colourfull navbar
 bg-image
+
+test message
