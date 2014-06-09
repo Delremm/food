@@ -1,18 +1,23 @@
 /* Sticky footer styles
 -------------------------------------------------- */
+/* TODO:
+ * - put all this stuff in style.css
+ * - change fonts
+ */
+
+
+
 html,
 body {
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
 }
-@font-face {
-  font-family: 'Open Sans Condensed';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url(/static/frontend/fonts/gk5FxslNkTTHtojXrkp-xGRqrPGLMrTi9b00I6Zi0LA.woff) format('woff');
-}
+
+
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=cyrillic-ext,latin);
+
 body {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Ubuntu Mono', mono ;
   color: #444;
   font-size: 13pt;
 }
