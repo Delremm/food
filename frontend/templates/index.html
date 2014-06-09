@@ -62,17 +62,17 @@
           <div class="row">
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="300">
               <i class="fa fa-globe fa-5x"></i>
-              <h3><a href="#">1. Вы расчитываете суточные потребности в пище</a></h3>
-              <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+              <h3>1. Определить суточную потребность в пище</h3>
+              <p>На нашем сайте вы можете определить вашу норму прямо при заказе или на странице расчета суточной потребности организма.</p>
             </div>
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="600">
               <i class="fa fa-cloud fa-5x"></i>
-              <h3><a href="#">2. Выбираете  рацион на следущий день</a></h3>
+              <h3>2. Выбираете  рацион на следущий день</h3>
               <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque lau dantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.</p>
             </div>
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="900">
               <i class="fa fa-mobile fa-5x"></i>
-              <h3><a href="#">3. Выбираете время и место доставки</a></h3>
+              <h3>3. Выбираете время и место доставки</h3>
               <p>Aliquam aliquet, est a ullamcorper condimentum, tellus nulla fringilla elit, a iaculis nulla turpis sed wisi. Fusce volutpat. Etiam sodales ante id nunc. Proin ornare dignissim lacus.</p>
             </div>
           </div>
@@ -504,35 +504,8 @@
         }, 500);
     });
 
-    function initAnimations() {
-        $('.animated').appear(function () {
-            var el = $(this);
-            var animation = el.data('animation');
-            var delay = el.data('delay');
-            if (delay) {
-                setTimeout(function () {
-                    el.addClass(animation);
-                    el.addClass('showing');
-                    el.removeClass('hiding');
-                }, delay);
-            } else {
-                el.addClass(animation);
-                el.addClass('showing');
-                el.removeClass('hiding');
-            }
-        }, {
-            accY: -60
-        });
 
-        // Service hover animation
-      $('.service').hover(function(){
-        $('i', this).addClass('animated tada');
-      },function(){ 
-            $('i', this).removeClass('animated tada');
-      });
-    }
 
-    
     //jQuery to collapse the navbar on scroll
     $(window).scroll(function() {
         if ($(".navbar").offset().top > 50) {
@@ -541,4 +514,11 @@
             $(".navbar-fixed-top").removeClass("top-nav-collapse");
         }
     });
+{% endblock %}
+{% block tailjs %}
+    <script src="/static/frontend/js/view/isotope.pkgd.min.js"></script>
+    <script src="/static/frontend/js/view/imagesloaded.min.js"></script>
+    <script src="/static/frontend/js/view/jquery.nav.min.js"></script>
+    <script src="/static/frontend/js/view/jquery.appear.min.js"></script>
+    <script src="/static/frontend/js/view/script.js"></script>
 {% endblock %}

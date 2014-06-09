@@ -61,7 +61,6 @@
             <!-- Less CDN-->
             <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>
         {% endblock %}
-
         {# Block for body onload functions #}
         <script type="text/javascript">
             {% block extrajs %}{% endblock %}
@@ -70,5 +69,6 @@
                 {% endblock %}
             });
         </script>
+        {% block tailjs %}{% endblock %}
     </body>
 </html>

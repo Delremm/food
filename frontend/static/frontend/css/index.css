@@ -144,3 +144,19 @@
 
 .hiding { opacity: 0 }
 .showing { opacity: 1 }
+
+
+.page { overflow: hidden }
+.page .content { padding: 60px 0 }
+.page .content.cover { padding: 240px 0 }
+.page .heading h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.page .border {
+  width: 80px;
+  height: 2px;
+  margin: 0 auto;
+  background-color: #71be3c;
+}
+.page .heading p { margin: 20px auto 0 }
