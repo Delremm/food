@@ -136,11 +136,14 @@ def install_supervisor():
 
 def sync_app(settings_mode=env.settings_mode):
     with cd(env.project_dir), shell_env(DJANGO_SETTINGS_MODULE='food.settings.%s' % settings_mode):
-        #_ve_run(env.project, "easy_install -i http://downloads.egenix.com/python/index/ucs4/ egenix-mx-base")
         _ve_run(env.project, "python3 manage.py syncdb")
         _ve_run(env.project, "python3 manage.py migrate")
         _ve_run(env.project, "python3 manage.py collectstatic")
 
+
+def collectstatic(settings_mode=env.settings_mode):
+    with cd(env.project_dir), shell_env(DJANGO_SETTINGS_MODULE='food.settings.%s' % settings_mode):
+        _ve_run(env.project, "python3 manage.py collectstatic")
 
 def reload_app(arg=None):
     """Pulls app and refreshes requirements"""
