@@ -61,12 +61,15 @@ angular.module('macroApp.controllers', []).controller(
         var lbm = calculate_lean_body_mass(body_data);
         return 370+21.6*lbm
     };
+    function Katch_McArdle_method_is_ready(body_data){
+        return True;
+    }
     $scope.bmr = {
         current_method_id: 0,
         methods: [
             {id: 0, name: 'Mifflin St Jeor формула', callback: Mifflin_St_Jeor_method},
-            {id: 1, name: 'Harris-Benedict формула', callback: Harris_Benedict_method},
-            {id: 2, name: 'Katch-McArdle формула', callback: Katch_McArdle_method},
+            //{id: 1, name: 'Harris-Benedict формула', callback: Harris_Benedict_method},
+            {id: 1, name: 'Katch-McArdle формула', callback: Katch_McArdle_method, ready_callback: Katch_McArdle_method_is_ready},
         ],
     };
     $scope.results = {

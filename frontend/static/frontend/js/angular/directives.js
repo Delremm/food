@@ -41,7 +41,7 @@ angular.module('macroApp.directives', []).directive('integer', function() {
     restrict: 'A',
     link: function(scope, elm, attrs){
       function load_description(){
-        var desc_url = '/configuration/'+attrs.descSlug+'/';
+        var desc_url = '/texts/'+attrs.descSlug+'/';
         $('#'+attrs.descDestinationId).html('Загрузка...');
         $http.get(desc_url, { cache: $templateCache }).success(function(data) {
             $('#'+attrs.descDestinationId).html(data);

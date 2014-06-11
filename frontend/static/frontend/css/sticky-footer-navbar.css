@@ -44,7 +44,7 @@ h6 { font-weight: 300 }
   padding: 40px 0;
   color: #ccc;
   text-align: center;
-  background-color: #ff2d2d;
+  background-color: #FF3300;
 }
 #footer a,
 #footer a:hover,
@@ -108,11 +108,11 @@ h6 { font-weight: 300 }
 
 
 .navbar-custom {
-    background-color: #ff2d2d;
+    background-color: #FF3300;
 }
 
 
 
 
 #wrap .social a:hover,
-#wrap .social a:focus { color: #ff2d2d }
+#wrap .social a:focus { color: #FF3300 }

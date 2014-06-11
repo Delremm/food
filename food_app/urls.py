@@ -1,12 +1,12 @@
 # coding: utf-8
 
 from django.conf.urls import *
-from formeal_app.views import ConfigurationView
+from food_app.views import FlatblocksView
 
 
 urlpatterns = patterns(
     '',
     url(
-        r'^configuration/(?P<slug>\w+)/$',
-        ConfigurationView.as_view(), name="configuration"),
+        r'^texts/(?P<slug>\w+)/$',
+        FlatblocksView.as_view(), name="texts"),
 )

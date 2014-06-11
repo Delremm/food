@@ -19,6 +19,7 @@ urlpatterns = patterns(
     url(r'^api-auth/', include('rest_framework.urls',
                                namespace='rest_framework')),
     (r'^pages/', include('django.contrib.flatpages.urls')),
+    url(r'^', include('food_app.urls', namespace="apps")),
 )
 
 from django.conf import settings

@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     "easy_thumbnails",
     "filer",
     'frontend',
+    'food_app',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
