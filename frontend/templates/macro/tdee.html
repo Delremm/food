@@ -12,6 +12,7 @@
                     <div class="row">
                     <div class="col-md-4">
                         <div class="row">
+                            <div class="col-md-12">
                             <h3>Информация о вас:</h3>
                             <form class="form-horizontal" role="form" name="bodyForm">
                             <div class="form-group" description desc-slug="default_title" desc-destination-id="description_div" ng-mouseenter="load_description()">
@@ -21,44 +22,40 @@
                                     <span class="input-group-addon">кг</span>
                                 </div>
                             </div>
-                            <div class="row" description desc-destination-id="description_div" desc-slug="macro_bmr_desc" ng-mouseenter="load_description()">
-                                <div class="col-md-8">
-                                <h4>Метаболизм</h4>
-                                <div ng-repeat="bmr_method in bmr.methods">
-                                    <input type="radio" value="{[{ $index }]}" name="{[{ $index }]}" ng-model="bmr.current_method_id" ng-click="set_bmr_method($index)" >
-                                        {[{ bmr_method.name }]}
-                                </div>
-                                <div class="form-group">
-                                    <p>свое значение:</p>
-                                    <input type="number" integer min="1" ng-model="results.bmr" class="form-control">
-                                </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <h2 ng-show="results.bmr">{[{ results.bmr | number:0 }]} ккал</h2>
-                                </div>
-                            </div>
+                            <hr>
+                            <h5 ng-class="bmr.current_method_id==0 && ' ' || 'text-muted'">для расчета методом "Mifflin St Jeor"</h5>
                             <div class="form-group" desc-slug="macro_height_desc" description desc-destination-id="description_div" ng-mouseenter="load_description()">
-                                <label class="col-lg-4 control-label">рост</label>
+                                <label class="col-lg-4 control-label" ng-class="bmr.current_method_id==0 && ' ' || 'text-muted'">рост</label>
                                 <div class="col-lg-8 input-group">
                                 <input type="number" min="1" max="220" step="0.1" ng-model="body_data.height" placeholder="в см" class="form-control" required smart-float>
                                 <span class="input-group-addon">см</span>
                                 </div>
                             </div>
                             <div class="form-group" description desc-destination-id="description_div" desc-slug="macro_age_desc" ng-mouseenter="load_description()">
-                                <label class="col-lg-4 control-label">возраст</label>
+                                <label class="col-lg-4 control-label" ng-class="bmr.current_method_id==0 && ' ' || 'text-muted'">возраст</label>
                                 <div class="col-lg-8 input-group">
                                 <input type="number" min="1" max="100" integer ng-model="body_data.age" placeholder="сколько лет" class="form-control error" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-4 control-label">пол</label>
+                                <label class="col-lg-4 control-label" ng-class="bmr.current_method_id==0 && ' ' || 'text-muted'">пол</label>
                                 <div class="col-lg-8 input-group">
                                 <input type="radio" ng-model="body_data.gender" value="m"> мужской
                                 <input type="radio" ng-model="body_data.gender" value="f"> женский
                                 </div>
                             </div>
+                            <hr>
+                            <h5 ng-class="bmr.current_method_id==1 && ' ' || 'text-muted'">Для расчета методом "Katch-McArdle"</h5>
+                            <div class="form-group" description desc-destination-id="description_div" desc-slug="macro_bfp_desc" ng-mouseenter="load_description()">
+                                <label class="col-lg-4 control-label" ng-class="bmr.current_method_id==1 && ' ' || 'text-muted'">процент жира</label>
+                                <div class="col-lg-8 input-group">
+                                <input type="text" ng-model="body_data.bfp" placeholder="в %" class="form-control" smart-float>
+                                <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                            <hr>
                             <div class="form-group" description desc-destination-id="description_div" desc-slug="macro_activity_desc" ng-mouseenter="load_description()">
-                                <label class="col-lg-4 control-label">активность</label>
+                                <label class="col-lg-4 control-label">активность<a href="http://en.wikipedia.org/wiki/Physical_activity_level" target="_blank">[2]</a></label>
                                 <div class="col-lg-8 input-group">
                                 <select type="text" ng-model="body_data.activity" ng-options="activity.name for activity in body_data.activity_options" class="form-control"></select>
                                 </div>
@@ -71,23 +68,22 @@
                                     </ul>
                                 </div>
                             </div>
-                            <hr>
-                            <h3 class="text-muted">Необязательные параметры</h3>
-                            <div class="form-group" description desc-destination-id="description_div" desc-slug="macro_bfp_desc" ng-mouseenter="load_description()">
-                                <label class="col-lg-4 control-label"><span class="text-muted">
-                                процент жира</span></label>
-                                <div class="col-lg-8 input-group">
-                                <input type="text" ng-model="body_data.bfp" placeholder="в %" class="form-control" smart-float>
-                                <span class="input-group-addon">%</span>
-                                </div>
-                            </div>
-                            <input type="submit" class="btn btn-primary pull-right">
+                            <input type="submit" class="btn btn-primary pull-right" value="Сохранить">
                             </form>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div>
-                            <h2 ng-show="results.tdee">Дневная норма калорий: {[{ results.tdee | number:0 }]} ккал</h2>
+                            <h2>Дневная норма калорий: <span ng-show="results.tdee">{[{ results.tdee | number:0 }]} ккал</span></h2>
+                            <div class="text-danger" ng-show="!(results.tdee)">
+                                <div ng-if="bmr.current_method_id==0">
+                                введите вес, рост, возраст, пол
+                                </div>
+                                <div ng-if="bmr.current_method_id==1">
+                                введите вес и процент жира
+                                </div>
+                             </div>
                             <div description desc-destination-id="description_div" ng-show>
                                 <h4>Среднесуточная норма калорий</h4>
                                 <p>Количество питательных веществ в день, необходимых для жизнедеятельности человека.</p>
@@ -101,18 +97,17 @@
                         <h3>Данные:</h3>
                         <div class="row" description desc-destination-id="description_div" desc-slug="macro_bmr_desc" ng-mouseenter="load_description()">
                             <div class="col-md-8">
-                            <h4>Метаболизм</h4>
+                            <h4>Метод расчета метаболизма<a href="http://en.wikipedia.org/wiki/Basal_metabolic_rate" target="_blank">[1]</a></h4>
                             <div ng-repeat="bmr_method in bmr.methods">
                                 <input type="radio" value="{[{ $index }]}" name="{[{ $index }]}" ng-model="bmr.current_method_id" ng-click="set_bmr_method($index)" >
                                     {[{ bmr_method.name }]}
                             </div>
-                            <div class="form-group">
-                                <p>свое значение:</p>
-                                <input type="number" integer min="1" ng-model="results.bmr" class="form-control">
-                            </div>
                             </div>
                             <div class="col-md-4">
-                                <h2 ng-show="results.bmr">{[{ results.bmr | number:0 }]} ккал</h2>
+                                <div ng-if="results.bmr">
+                                    <h4>Метаболизм:</h4>
+                                    <h3>{[{ results.bmr | number:0 }]} ккал</h3>
+                                </div>
                             </div>
                         </div>
                         <div class="row" description desc-destination-id="description_div" desc-slug="macro_tdee_desc" ng-mouseenter="load_description()">
@@ -127,38 +122,14 @@
                                 <h2 >{[{ results.tdee | number:0 }]} ккал</h2>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-8">
-                            <div description desc-destination-id="description_div" desc-slug="macro_bmi_desc" ng-mouseenter="load_description()">
-                                <p>Индекс массы тела - {[{ results.bmi | number:0 }]}</p>
-                            </div>
-                            <div description desc-destination-id="description_div" desc-slug="macro_waist_to_height_desc" ng-mouseenter="load_description()">
-                                <p>Отношение талии к росту - {[{ results.waist_to_height_ratio | number:1 }]} </p>
-                            </div>
-                            <div description desc-destination-id="description_div" desc-slug="macro_waist_to_height_desc" ng-mouseenter="load_description()">
-                                <p>Сухая мышечная масса - {[{ results.lean_body_mass | number:0 }]} кг</p>
-                                <div description desc-destination-id="description_div" ng-show>
-                                    <h4>Сухая мышечная масса</h4>
-                                    <p><a href="http://en.wikipedia.org/wiki/Waist-to-height_ratio" target="_blank">Lean body mass</a> - это масса тела без жира.</p>
-                                </div>
-                            </div>
-                            <div description desc-destination-id="description_div" desc-slug="macro_max_fat_metabolism_desc" ng-mouseenter="load_description()">
-                                <p>Максимальный метаболизм жира {[{ results.max_fat_metabolism | number:0 }]} ккал</p>
-                            </div>
-                            <div description desc-destination-id="description_div" desc-slug="macro_minimum_daily_cal_desc" ng-mouseenter="load_description()">
-                                <p>Минимальные дневные калории {[{ results.tdee - results.max_fat_metabolism | number:0 }]} ккал</p>
-                            </div>
-                            </div>
-                            <div class="col-md-4">
-                            <p>{[{ results.bmi | number:0 }]}</p>
-                            <p>
-                                {[{ results.lean_body_mass | number:0 }]}</p>
-                            <p>{[{ results.max_fat_metabolism | number:0 }]} ккал</p>
-                            <p>{[{ results.tdee - results.max_fat_metabolism | number:0 }]} ккал</p>
-                            </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-6">
+                        <input type="submit" class="btn btn-primary pull-right" value="Перейти к прогнозу">
                         </div>
                     </div>
-                    </div>
+                    <br>
                 </div>
             </div>
         {% endverbatim %}

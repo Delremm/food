@@ -56,6 +56,14 @@ angular.module('macroApp.controllers', []).controller(
         // }
         return lbm
     }
+    function calculate_fat_mass(body_data){
+        //bfp - body fat percentage
+        //fm - fat mass
+        var bfp = parseFloat(body_data.bfp);
+        var weight = parseFloat(body_data.weight);
+        var fm = weight*bfp/100.0;
+        return fm
+    }
     function Katch_McArdle_method(body_data){
         //lbm - lean body mass
         var lbm = calculate_lean_body_mass(body_data);
@@ -72,6 +80,7 @@ angular.module('macroApp.controllers', []).controller(
             {id: 1, name: 'Katch-McArdle формула', callback: Katch_McArdle_method, ready_callback: Katch_McArdle_method_is_ready},
         ],
     };
+
     $scope.results = {
         bmr: '',
         tdee: '',
@@ -108,6 +117,7 @@ angular.module('macroApp.controllers', []).controller(
         $scope.results.max_fat_metabolism = calculate_max_fat_metabolism(value);
         $scope.results.lean_body_mass = calculate_lean_body_mass(value);
         $scope.results.waist_to_height_ratio = calculate_waist_to_height_ratio(value);
+        $scope.results.fat_mass = calculate_fat_mass(value);
     })
     $scope.set_bmr_method = function(bmr_method_id){
         $scope.bmr.current_method_id = bmr_method_id;
