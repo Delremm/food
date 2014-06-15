@@ -48,17 +48,7 @@ angular.module('macroApp.directives', []).directive('integer', function() {
             $('#'+attrs.descDestinationId).append($(elm).find("div.description").html());
         });
       }
-      elm.bind('mouseenter', load_description);
-      // $(elm).parent().hover(
-      //   function(){
-      //     scope.load_description();
-      //     //$('#'+attrs.descDestinationId).html(elm.html());
-      //   },
-      //   function(){
-      //     //$('#'+attrs.descDestinationId).text('');
-      //   }
-      // );
-      
+      elm.bind('mouseenter', load_description);      
     }
   }
 }]);
