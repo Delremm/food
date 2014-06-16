@@ -29,6 +29,10 @@
 
         {# Additional CSS, meta - specific to certain pages #}
         {% block extrahead %}{% endblock %}
+        {% block tracking %}
+            <!-- analytics -->
+            {% sitemetrics %}
+        {% endblock %}
     </head>
 
     <body {% block body_attrs %}{% endblock %}>
@@ -44,12 +48,6 @@
             {% block footer %}
                 {% include "partials/footer.html" %}
             {% endblock %}
-        {% endblock %}
-
-        {% block tracking %}
-            <!-- analytics -->
-            {# Default to using Google analytics #}
-            {% sitemetrics %}
         {% endblock %}
 
         {% block cdn_scripts %}
