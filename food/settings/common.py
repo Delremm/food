@@ -41,7 +41,6 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.flatpages',
     'extended_flatpages',
-    'sitemetrics',
     'flatblocks',
     'rest_framework',
     'mptt',
@@ -53,6 +52,7 @@ INSTALLED_APPS = (
     "filer",
     'frontend',
     'food_app',
+    'sitemetrics',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
