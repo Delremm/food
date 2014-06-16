@@ -1,5 +1,4 @@
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
 from djrill import DjrillAdminSite
 
@@ -20,6 +19,12 @@ urlpatterns = patterns(
                                namespace='rest_framework')),
     (r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^', include('food_app.urls', namespace="apps")),
+)
+
+# flatpages
+urlpatterns += patterns(
+    'django.contrib.flatpages.views',
+    url(r'^pages/contacts/$', 'flatpage', {'url': '/contacts/'}, name='contacts'),
 )
 
 from django.conf import settings
