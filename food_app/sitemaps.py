@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 
 
 class StaticViewSitemap(Sitemap):
-    priority = 1.6
+    priority = 1.0
     changefreq = 'dayly'
 
     def items(self):
