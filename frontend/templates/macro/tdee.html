@@ -124,15 +124,15 @@
                         </div>
                     </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-1 col-md-offset-6">
-                        <input type="submit" class="btn btn-primary pull-right" value="Перейти на главную">
-                        </div>
-                    </div>
                     <br>
                 </div>
             </div>
         {% endverbatim %}
+    </div>
+    <div class="row">
+        <div class="col-md-1 col-md-offset-6">
+        <a href="{% url 'home' %}" class="btn btn-primary pull-right">Перейти на главную</a>
+        </div>
     </div>
 </div>
 {% endblock %}

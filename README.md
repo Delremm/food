@@ -5,11 +5,7 @@ export DJANGO_SETTINGS_MODULE=food.settings.production
 export DJANGO_SETTINGS_MODULE=food.settings.dev
 
 
-fabfile of deplayment
-prod, dev settings
-media+static
 follow btn
-gunicorn+supervisord
 selling_text
 forcing
 
@@ -22,10 +18,3 @@ goal
 articles
 team
 goal
-
-
-design:
-colourfull navbar
-bg-image
-
-test message
