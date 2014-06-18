@@ -63,19 +63,18 @@
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="300">
               <i class="fa fa-edit fa-5x"></i>
               <h3>1. Определить суточную потребность в пище</h3>
-              <p>На нашем сайте ВЫ можете <a href="{% url 'macro:tdee' %}">определить</a> ВАШУ норму прямо при заказе или на странице расчета суточной потребности организма.</p>
+              <p><a href="{% url 'macro:tdee' %}">Определить норму калорий</a> можно прямо при заказе или на странице расчета суточной потребности организма. Теперь заказывая еду, вы можете указать сколько в ней будет калорий.</p>
             </div>
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="600">
               <i class="fa fa-shopping-cart fa-5x"></i>
-              <h3>2. Выбираете рацион на следущий день</h3>
-              <p>Снимите стресс и постоянные переживания о пропитании.
-			  90% людей считают, что питаются неправильно, многие переживают по этому поводу, наш сервис избавит ВАС от этого гнетущего чувства.
-			  </p>
+              <h3>2. Выбирать рацион на следущий день</h3>
+              <p>Выбор из 2-3 вариантов завтрака, обеда и ужина. Возможность указать пожелания в пище, запретить определенные продукты. С нашим сервисом легко иметь индивидуальный рацион с первокласным вкусом. Сервис "Мудрый обед" полностью заменит вам персонального диетолога.
+              </p>
             </div>
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="900">
               <i class="fa fa-car fa-5x"></i>
-              <h3>3. Выбираете время и место доставки</h3>
-              <p>Забудте об очередях и походах в магазин. Получаейте то что ВЫ хотите когда и где ВЫ хотите. </p>
+              <h3>3. Выбрать время и место доставки</h3>
+              <p>Сейчас мы доставляем только в центр и индустриальный район. Доставка происходит в указаное вами время, с точностью {% flatblock 'index_delivery_precision' using 'flatblocks/row.html' %}.</p>
             </div>
           </div>
           <div class="row">
@@ -87,7 +86,7 @@
     </section>
 
 
-        <section id="compare" class="page">
+    <section id="compare" class="page">
       <div class="container">
         <div class="content text-center">
           <div class="heading">
@@ -179,6 +178,95 @@
         </div>
       </div>
     </section>
+
+
+    <section id="fitures" class="page">
+      <div class="container">
+        <div class="content text-center">
+          <div class="heading">
+            <h2>Что вы получите</h2>
+            <div class="border"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="photo-rounded">
+                <img class="img-responsive" src="assets/img/team/1.jpg" alt="">
+              </div>
+              <div>
+                <h4>Cнятие стресса и постоянных переживаниях о питании</h4>
+                <div class="border"></div>
+                <p>90% людей считают, что питаются неправильно, многие переживают по этому поводу, наш сервис избавит вас от этого гнетущего чувства.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="photo-rounded">
+                <img class="img-responsive" src="assets/img/team/2.jpg" alt="">
+              </div>
+              <div class="bio">
+                <h4>Clarinda Gratia</h4>
+                <h5>Designer</h5>
+                <div class="border"></div>
+                <p>Lorem ipsum dolor sit, consetetur sadipscing elitr, diam nonumy eirmod tempor invidunt ut labore.</p>
+                <ul class="list-inline">
+                  <li>
+                    <a href="http://www.dribbble.com" title="Dribbble">
+                      <i class="fa fa-dribbble"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://www.pinterest.com" title="Pinterest">
+                      <i class="fa fa-pinterest"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://www.instagram.com" title="Instagram">
+                      <i class="fa fa-instagram"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="photo-rounded">
+                <img class="img-responsive" src="assets/img/team/3.jpg" alt="">
+              </div>
+              <div class="bio">
+                <h4>Mandeep Eimear</h4>
+                <h5>Mobile Developer</h5>
+                <div class="border"></div>
+                <p>Lorem ipsum dolor sit, consetetur sadipscing elitr, diam nonumy eirmod tempor invidunt ut labore.</p>
+                <ul class="list-inline">
+                  <li>
+                    <a href="http://www.twitter.com" title="Twitter">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://developer.android.com/index.html" title="Android Developers">
+                      <i class="fa fa-android"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://www.stackoverflow.com" title="Stack Overflow">
+                      <i class="fa fa-stack-overflow"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="twitter text-center">
+        <div class="animated hiding" data-animation="fadeIn">
+          <i class="fa fa-twitter fa-3x"></i>
+          <div id="feed"></div>
+        </div>
+      </div>
+    </section>
+
+
+
 
     <div class="container" id="main_text">
         <h2>Умный сервис доставки здоровой пищи в Перми. Мы считаем калории за вас.<h2>
