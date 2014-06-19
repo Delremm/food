@@ -46,13 +46,13 @@ INSTALLED_APPS = (
     'mptt',
     'django.contrib.webdesign',
     "djrill",
-    'south',
     'emailer',
     "easy_thumbnails",
     "filer",
     'frontend',
     'food_app',
     'sitemetrics',
+    'south',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
