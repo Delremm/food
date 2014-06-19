@@ -184,100 +184,94 @@
       <div class="container">
         <div class="content text-center">
           <div class="heading">
-            <h2>Что вы получите</h2>
-            <div class="border"></div>
+            <h2>Что вы получаете</h2>
+            <br>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <div class="photo-rounded">
-                <img class="img-responsive" src="assets/img/team/1.jpg" alt="">
-              </div>
-              <div>
-                <h4>Cнятие стресса и постоянных переживаниях о питании</h4>
-                <div class="border"></div>
+                <h3>Cнятие стресса и постоянных переживаниях о питании</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/no_stress.jpg' %}" alt="">
+                </div>
                 <p>90% людей считают, что питаются неправильно, многие переживают по этому поводу, наш сервис избавит вас от этого гнетущего чувства.</p>
-              </div>
+                <div class="border"></div>
             </div>
             <div class="col-md-4">
-              <div class="photo-rounded">
-                <img class="img-responsive" src="assets/img/team/2.jpg" alt="">
-              </div>
-              <div class="bio">
-                <h4>Clarinda Gratia</h4>
-                <h5>Designer</h5>
+                <h3>Здоровая еда может быть вкусной</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/tasty.jpg' %}" alt="">
+                </div>
+                <p>Мы активно используем рецепты с лучшими отзывами.</p>
                 <div class="border"></div>
-                <p>Lorem ipsum dolor sit, consetetur sadipscing elitr, diam nonumy eirmod tempor invidunt ut labore.</p>
-                <ul class="list-inline">
-                  <li>
-                    <a href="http://www.dribbble.com" title="Dribbble">
-                      <i class="fa fa-dribbble"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.pinterest.com" title="Pinterest">
-                      <i class="fa fa-pinterest"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.instagram.com" title="Instagram">
-                      <i class="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
             <div class="col-md-4">
-              <div class="photo-rounded">
-                <img class="img-responsive" src="assets/img/team/3.jpg" alt="">
-              </div>
-              <div class="bio">
-                <h4>Mandeep Eimear</h4>
-                <h5>Mobile Developer</h5>
+                <h3>Забудьте об очередях</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/queue.jpg' %}" alt="">
+                </div>
+                <p>Вам больше не придется самостоятельно покупать продукты, теперь нет надобности таскать тяжелые сумки с продуктами, мы с радость сделаем это за вас.</p>
                 <div class="border"></div>
-                <p>Lorem ipsum dolor sit, consetetur sadipscing elitr, diam nonumy eirmod tempor invidunt ut labore.</p>
-                <ul class="list-inline">
-                  <li>
-                    <a href="http://www.twitter.com" title="Twitter">
-                      <i class="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://developer.android.com/index.html" title="Android Developers">
-                      <i class="fa fa-android"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.stackoverflow.com" title="Stack Overflow">
-                      <i class="fa fa-stack-overflow"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="twitter text-center">
-        <div class="animated hiding" data-animation="fadeIn">
-          <i class="fa fa-twitter fa-3x"></i>
-          <div id="feed"></div>
+          <div class="row">
+            <div class="col-md-4">
+                <h3>Абсолютный контроль веса</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/weight_control.jpg' %}" alt="">
+                </div>
+                <p>Единственный способ контролировать вес - следить за количеством потребляемых калорий. Только с нами вы сможете сделать это без особых усилий. Расчитайте ваше дневную <a href="{% url 'macro:tdee' %}">потребность в калориях</a>.</p>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Мы делаем всю кропотливую работу</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/hardwork.jpg' %}" alt="">
+                </div>
+                <p>Захотелось рыбы? Мы помоем, выпотрошим и очистим рыбу от чешуи. Вам не придется морщиться от запаха сырой рыбы. Мы даже можем убрать из рыбы все кости.</p>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Мы следим за прогрессом в диетологии</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/science.jpg' %}" alt="">
+                </div>
+                <p>Мы пишем статьи, активно изучаем иностранную литературу и новые течения в области диетологии.</p>
+                <div class="border"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+                <h3>Свежие ингридиенты</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/fresh.jpg' %}" alt="">
+                </div>
+                <p>Поскольку мы за день до срока доставки знаем что вы будете есть, продукты приобретаются в день доставки.</p>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Индивидуальный подход</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/personal.jpg' %}" alt="">
+                </div>
+                <p>Мы учитываем ваши предпочтения в пище, вы можете выбрать что вы не едите, составив черный список продуктов. Например, вы можете отказаться от жареного. При каждом заказе мы будем учитывать ваши пожелания.</p>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Доступность</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/affordable.jpg' %}" alt="">
+                </div>
+                <p>Наша бизнес-модель позволяет нам экономить на аренде, поскольку работа с доставкой не требует размещения в видном месте в самом центре города. Наша система логистики позволяет составить оптимальный маршрут доставки, достигая рекордной в Перми точности доставки в {% flatblock 'index_delivery_precision' using 'flatblocks/row.html' %}.</p>
+                <div class="border"></div>
+            </div>
+          </div>
+          <div class="row">
+            <button class="btn btn-danger btn-lg" disabled="disabled">Заказать</button>
+          </div>
         </div>
       </div>
     </section>
 
-
-
-
-    <div class="container" id="main_text">
-        <h2>Умный сервис доставки здоровой пищи в Перми. Мы считаем калории за вас.<h2>
-        <h2>Здоровое питание в Перми</h2>
-
-        <h3>Рацион составленный профессональными диетологами<h3>
-        <h3>Подсчет каллорий, микро и макро-нутриентов.</h3>
-
-        <h3>Открытие июль-август 2014</h3>
-
-    </div>
 {% endblock %}
 {% block extrajs %}
 {% endblock %}

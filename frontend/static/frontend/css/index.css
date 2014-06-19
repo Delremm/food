@@ -139,8 +139,6 @@
 #compare {
   border-bottom: solid 1px #e7e7e7;
 }
-#compare .service i { margin-top: 60px }
-#compare .service:hover i { color: #71be3c }
 
 .page { overflow: hidden }
 .page .content { padding: 60px 0 }
@@ -153,6 +151,6 @@
   width: 80px;
   height: 2px;
   margin: 0 auto;
-  background-color: #71be3c;
+  background-color: #FF3300;
 }
 .page .heading p { margin: 20px auto 0 }
