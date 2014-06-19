@@ -63,19 +63,18 @@
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="300">
               <i class="fa fa-edit fa-5x"></i>
               <h3>1. Определить суточную потребность в пище</h3>
-              <p>На нашем сайте ВЫ можете <a href="{% url 'macro:tdee' %}">определить</a> ВАШУ норму прямо при заказе или на странице расчета суточной потребности организма.</p>
+              <p><a href="{% url 'macro:tdee' %}">Определить норму калорий</a> можно прямо при заказе или на странице расчета суточной потребности организма. Теперь заказывая еду, вы можете указать сколько в ней будет калорий.</p>
             </div>
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="600">
               <i class="fa fa-shopping-cart fa-5x"></i>
-              <h3>2. Выбираете рацион на следущий день</h3>
-              <p>Снимите стресс и постоянные переживания о пропитании.
-			  90% людей считают, что питаются неправильно, многие переживают по этому поводу, наш сервис избавит ВАС от этого гнетущего чувства.
-			  </p>
+              <h3>2. Выбирать рацион на следущий день</h3>
+              <p>Выбор из 2-3 вариантов завтрака, обеда и ужина. Возможность указать пожелания в пище, запретить определенные продукты. С нашим сервисом легко иметь индивидуальный рацион с первокласным вкусом. Сервис "Мудрый обед" полностью заменит вам персонального диетолога.
+              </p>
             </div>
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="900">
               <i class="fa fa-car fa-5x"></i>
-              <h3>3. Выбираете время и место доставки</h3>
-              <p>Забудте об очередях и походах в магазин. Получаейте то что ВЫ хотите когда и где ВЫ хотите. </p>
+              <h3>3. Выбрать время и место доставки</h3>
+              <p>Сейчас мы доставляем только в центр и индустриальный район. Доставка происходит в указаное вами время, с точностью {% flatblock 'index_delivery_precision' using 'flatblocks/row.html' %}.</p>
             </div>
           </div>
           <div class="row">
@@ -87,7 +86,7 @@
     </section>
 
 
-        <section id="compare" class="page">
+    <section id="compare" class="page">
       <div class="container">
         <div class="content text-center">
           <div class="heading">
@@ -180,16 +179,99 @@
       </div>
     </section>
 
-    <div class="container" id="main_text">
-        <h2>Умный сервис доставки здоровой пищи в Перми. Мы считаем калории за вас.<h2>
-        <h2>Здоровое питание в Перми</h2>
 
-        <h3>Рацион составленный профессональными диетологами<h3>
-        <h3>Подсчет каллорий, микро и макро-нутриентов.</h3>
+    <section id="fitures" class="page">
+      <div class="container">
+        <div class="content text-center">
+          <div class="heading">
+            <h2>Что вы получаете</h2>
+            <br>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+                <h3>Cнятие стресса и постоянных переживаниях о питании</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/no_stress.jpg' %}" alt="">
+                </div>
+                <p>90% людей считают, что питаются неправильно, многие переживают по этому поводу, наш сервис избавит вас от этого гнетущего чувства.</p>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Здоровая еда может быть вкусной</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/tasty.jpg' %}" alt="">
+                </div>
+                <p>Мы активно используем рецепты с лучшими отзывами.</p>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Забудьте об очередях</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/queue.jpg' %}" alt="">
+                </div>
+                <p>Вам больше не придется самостоятельно покупать продукты, теперь нет надобности таскать тяжелые сумки с продуктами, мы с радость сделаем это за вас.</p>
+                <div class="border"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+                <h3>Абсолютный контроль веса</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/weight_control.jpg' %}" alt="">
+                </div>
+                <p>Единственный способ контролировать вес - следить за количеством потребляемых калорий. Только с нами вы сможете сделать это без особых усилий. Расчитайте ваше дневную <a href="{% url 'macro:tdee' %}">потребность в калориях</a>.</p>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Мы делаем всю кропотливую работу</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/hardwork.jpg' %}" alt="">
+                </div>
+                <p>Захотелось рыбы? Мы помоем, выпотрошим и очистим рыбу от чешуи. Вам не придется морщиться от запаха сырой рыбы. Мы даже можем убрать из рыбы все кости.</p>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Мы следим за прогрессом в диетологии</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/science.jpg' %}" alt="">
+                </div>
+                <p>Мы пишем статьи, активно изучаем иностранную литературу и новые течения в области диетологии.</p>
+                <div class="border"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+                <h3>Свежие ингридиенты</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/fresh.jpg' %}" alt="">
+                </div>
+                <p>Поскольку мы за день до срока доставки знаем что вы будете есть, продукты приобретаются в день доставки.</p>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Индивидуальный подход</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/personal.jpg' %}" alt="">
+                </div>
+                <p>Мы учитываем ваши предпочтения в пище, вы можете выбрать что вы не едите, составив черный список продуктов. Например, вы можете отказаться от жареного. При каждом заказе мы будем учитывать ваши пожелания.</p>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Доступность</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/affordable.jpg' %}" alt="">
+                </div>
+                <p>Наша бизнес-модель позволяет нам экономить на аренде, поскольку работа с доставкой не требует размещения в видном месте в самом центре города. Наша система логистики позволяет составить оптимальный маршрут доставки, достигая рекордной в Перми точности доставки в {% flatblock 'index_delivery_precision' using 'flatblocks/row.html' %}.</p>
+                <div class="border"></div>
+            </div>
+          </div>
+          <div class="row">
+            <button class="btn btn-danger btn-lg" disabled="disabled">Заказать</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <h3>Открытие июль-август 2014</h3>
-
-    </div>
 {% endblock %}
 {% block extrajs %}
 {% endblock %}
