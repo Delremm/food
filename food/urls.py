@@ -1,12 +1,14 @@
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
+from django.views.generic import TemplateView
 from djrill import DjrillAdminSite
+
+from food_app.views import TextFileView
+from food_app.sitemaps import sitemaps_dict
 
 admin.site = DjrillAdminSite()
 admin.autodiscover()
 
-from django.views.generic import TemplateView
 
 urlpatterns = patterns(
     '',
@@ -20,6 +22,16 @@ urlpatterns = patterns(
                                namespace='rest_framework')),
     (r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^', include('food_app.urls', namespace="apps")),
+
+    # SEO API's
+    url(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps_dict}),
+    url(r'^robots.txt$', TextFileView.as_view(content_type='text/plain', template_name='robots.txt')),
+)
+
+# flatpages
+urlpatterns += patterns(
+    'django.contrib.flatpages.views',
+    url(r'^pages/contacts/$', 'flatpage', {'url': '/contacts/'}, name='contacts'),
 )
 
 from django.conf import settings

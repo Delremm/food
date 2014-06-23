@@ -15,6 +15,10 @@ requests==2.3.0
 requests-oauthlib==0.4.0
 
 Pillow==2.4.0
--e git+https://github.com/stefanfoulis/django-filer.git#egg=django_filer
+-e git+https://github.com/stefanfoulis/django-filer.git@develop#egg=django_filer
 -e git+https://github.com/django-mptt/django-mptt.git#egg=django_mptt
 easy-thumbnails==2.0.1
+
+
+#dev
+django-debug-toolbar==1.2.1

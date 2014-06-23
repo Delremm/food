@@ -1,0 +1,14 @@
+{% extends "error.html" %}
+{% load i18n %}
+
+{% block title %}
+Страница не найдена | {{ block.super }}
+{% endblock %}
+
+{% block error_heading %}
+Страница не найдена
+{% endblock %}
+
+{% block error_message %}
+<p>Извините, но страница, которую вы ищете, не может быть найдена.</p>
+{% endblock %}

@@ -63,17 +63,18 @@
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="300">
               <i class="fa fa-edit fa-5x"></i>
               <h3>1. Определить суточную потребность в пище</h3>
-              <p>На нашем сайте вы можете <a href="{% url 'macro:tdee' %}">определить</a> вашу норму прямо при заказе или на странице расчета суточной потребности организма.</p>
+              <p><a href="{% url 'macro:tdee' %}">Определить норму калорий</a> можно прямо при заказе или на странице расчета суточной потребности организма. Теперь заказывая еду, вы можете указать сколько в ней будет калорий.</p>
             </div>
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="600">
               <i class="fa fa-shopping-cart fa-5x"></i>
-              <h3>2. Выбираете  рацион на следущий день</h3>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque lau dantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.</p>
+              <h3>2. Выбирать рацион на следущий день</h3>
+              <p>Выбор из 2-3 вариантов завтрака, обеда и ужина. Возможность указать пожелания в пище, запретить определенные продукты. С нашим сервисом легко иметь индивидуальный рацион с первокласным вкусом. Сервис "Мудрый обед" полностью заменит вам персонального диетолога.
+              </p>
             </div>
             <div class="col-lg-4 service animated hiding" data-animation="fadeInUp" data-delay="900">
               <i class="fa fa-car fa-5x"></i>
-              <h3>3. Выбираете время и место доставки</h3>
-              <p>Aliquam aliquet, est a ullamcorper condimentum, tellus nulla fringilla elit, a iaculis nulla turpis sed wisi. Fusce volutpat. Etiam sodales ante id nunc. Proin ornare dignissim lacus.</p>
+              <h3>3. Выбрать время и место доставки</h3>
+              <p>Сейчас мы доставляем только в центр и индустриальный район. Доставка происходит в указаное вами время, с точностью {% flatblock 'index_delivery_precision' using 'flatblocks/row.html' %}.</p>
             </div>
           </div>
           <div class="row">
@@ -85,14 +86,14 @@
     </section>
 
 
-        <section id="compare" class="page">
+    <section id="compare" class="page">
       <div class="container">
         <div class="content text-center">
           <div class="heading">
             <h2>Сравните нас с остальными</h2>
             <div class="border"></div>
             <p><i>"Я то, что я ем"</i> гласит одна поговорка. Не стоит это забывать. А существующие в Перми сервисы доставки еды настолько сосредоточились на извлечении прибыли, что совершенно забыли о здоровье покупателей.</p>
-            <p>Наш сервис <b>{{ default_title }}</b> ставит своей целью заботу о вашем здоровье. 
+            <p>Наш сервис <b>{{ default_title }}</b> ставит своей целью заботу о вашем здоровье.
           </div>
           <div class="row">
             <div class="col-md-7 teammate animated hiding" data-animation="fadeInLeft" data-delay="600">
@@ -179,320 +180,98 @@
     </section>
 
 
-
-
-
-
-
-    <section id="work" class="page">
+    <section id="fitures" class="page">
       <div class="container">
         <div class="content text-center">
           <div class="heading">
-            <h2>This is how we do it.</h2>
-            <div class="border"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, alias enim placeat earum quos ab.</p>
+            <h2>Что вы получаете</h2>
+            <br>
           </div>
           <div class="row">
-            <div class="col-md-12">
-              <div id="portfolio">
-                <ul class="filters list-inline">
-                  <li>
-                    <a class="active" data-filter="*" href="#">All</a>
-                  </li>
-                  <li>
-                    <a data-filter=".photography" href="#">Photography</a>
-                  </li>
-                  <li>
-                    <a data-filter=".branding" href="#">Branding</a>
-                  </li>
-                  <li>
-                    <a data-filter=".web" href="#">Web</a>
-                  </li>
-                </ul>
-                <ul class="items list-unstyled clearfix animated hiding" data-animation="fadeInRight">
-                  <li class="item branding">
-                    <a href="#">
-                      <img src="assets/img/work/1.jpg" alt="">
-                      <div class="overlay">
-                        <span>Etiam porta</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="item photography">
-                    <a href="#">
-                      <img src="assets/img/work/2.jpg" alt="">
-                      <div class="overlay">
-                        <span>Lorem ipsum</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="item branding">
-                    <a href="#">
-                      <img src="assets/img/work/3.jpg" alt="">
-                      <div class="overlay">
-                        <span>Vivamus quis</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="item photography">
-                    <a href="#">
-                      <img src="assets/img/work/4.jpg" alt="">
-                      <div class="overlay">
-                        <span>Donec ac tellus</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="item photography">
-                    <a href="#">
-                      <img src="assets/img/work/5.jpg" alt="">
-                      <div class="overlay">
-                        <span>Etiam volutpat</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="item web">
-                    <a href="#">
-                      <img src="assets/img/work/6.jpg" alt="">
-                      <div class="overlay">
-                        <span>Donec congue </span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="item photography">
-                    <a href="#">
-                      <img src="assets/img/work/7.jpg" alt="">
-                      <div class="overlay">
-                        <span>Nullam a ullamcorper diam</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="item web">
-                    <a href="#">
-                      <img src="assets/img/work/8.jpg" alt="">
-                      <div class="overlay">
-                        <span>Etiam consequat</span>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="clients" class="page">
-      <div class="container">
-        <div class="content text-center">
-          <div class="row">
-            <div class="col-lg-12 animated hiding" data-animation="fadeInDown">
-              <div id="testimonials" class="carousel slide">
-                <ol class="carousel-indicators">
-                  <li data-target="#testimonials" data-slide-to="0" class="active"></li>
-                  <li data-target="#testimonials" data-slide-to="1" class=""></li>
-                  <li data-target="#testimonials" data-slide-to="2" class=""></li>
-                  <li data-target="#testimonials" data-slide-to="3" class=""></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="item active">
-                    <p class="quote">Quisque convallis diam ligula, ac accumsan eros pretium vel. Curabitur convallis nibh sit amet iaculis ornare. Integer blandit quis diam sed tincidunt.</p>
-                    <p class="client">John Doe / CEO</p>
-                  </div>
-                  <div class="item">
-                    <p class="quote">Vestibulum volutpat accumsan sem non eleifend. Vivamus pretium nisi semper sapien eleifend, vel lacinia lacus sodales. Morbi bibendum purus at leo laoreet, vel ultricies orci viverra.</p>
-                    <p class="client">Jorginho Jian / Developer</p>
-                  </div>
-                  <div class="item">
-                    <p class="quote">Curabitur in nulla et lorem varius convallis. Morbi bibendum purus at leo laoreet, vel ultricies orci viverra. Duis quis accumsan urna. Nulla faucibus mauris elit, vitae tristique nisi sollicitudin ut.</p>
-                    <p class="client">Gandalf Kadir / Web Designer</p>
-                  </div>
-                  <div class="item">
-                    <p class="quote">Nullam vel tempor quam, id dictum eros. Nam augue sem, aliquam ac mauris in, pharetra convallis quam. Nulla faucibus mauris elit, vitae tristique nisi sollicitudin ut. Vivamus pretium nisi semper sapien eleifend.</p>
-                    <p class="client">Homeros Yehudi / QA Engineer</p>
-                  </div>
+            <div class="col-md-4">
+                <h3>Cнятие стресса и постоянных переживаниях о питании</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/no_stress.jpg' %}" alt="">
                 </div>
-                <a class="left carousel-control" data-slide="prev" href="#testimonials">&lsaquo;</a>
-                <a class="right carousel-control" data-slide="next" href="#testimonials">&rsaquo;</a>
-              </div>
+                <p>90% людей считают, что питаются неправильно, многие переживают по этому поводу, наш сервис избавит вас от этого гнетущего чувства.</p>
+                <div class="border"></div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="about" class="page">
-      <div class="container">
-        <div class="content text-center">
-          <div class="heading">
-            <h2>About Us.</h2>
-            <div class="border"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.</p>
+            <div class="col-md-4">
+                <h3>Здоровая еда может быть вкусной</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/tasty.jpg' %}" alt="">
+                </div>
+                <p>Мы активно используем рецепты с лучшими отзывами.</p>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Забудьте об очередях</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/queue.jpg' %}" alt="">
+                </div>
+                <p>Вам больше не придется самостоятельно покупать продукты, теперь нет надобности таскать тяжелые сумки с продуктами, мы с радость сделаем это за вас.</p>
+                <div class="border"></div>
+            </div>
           </div>
           <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12 teammate animated hiding" data-animation="fadeInLeft" data-delay="600">
-              <div class="photo-rounded">
-                <img class="img-responsive" src="assets/img/team/1.jpg" alt="">
-              </div>
-              <div class="bio">
-                <h4>John Doe</h4>
-                <h5>Web Developer</h5>
+            <div class="col-md-4">
+                <h3>Абсолютный контроль веса</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/weight_control.jpg' %}" alt="">
+                </div>
+                <p>Единственный способ контролировать вес - следить за количеством потребляемых калорий. Только с нами вы сможете сделать это без особых усилий. Расчитайте ваше дневную <a href="{% url 'macro:tdee' %}">потребность в калориях</a>.</p>
                 <div class="border"></div>
-                <p>Lorem ipsum dolor sit, consetetur sadipscing elitr, diam nonumy eirmod tempor invidunt ut labore.</p>
-                <ul class="list-inline">
-                  <li>
-                    <a href="http://www.facebook.com" title="Facebook">
-                      <i class="fa fa-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.twitter.com" title="Twitter">
-                      <i class="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.linkedin.com" title="LinkedIn">
-                      <i class="fa fa-linkedin"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.github.com" title="GitHub">
-                      <i class="fa fa-github"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12 teammate animated hiding" data-animation="fadeInUp" data-delay="300">
-              <div class="photo-rounded">
-                <img class="img-responsive" src="assets/img/team/2.jpg" alt="">
-              </div>
-              <div class="bio">
-                <h4>Clarinda Gratia</h4>
-                <h5>Designer</h5>
+            <div class="col-md-4">
+                <h3>Мы делаем всю кропотливую работу</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/hardwork.jpg' %}" alt="">
+                </div>
+                <p>Захотелось рыбы? Мы помоем, выпотрошим и очистим рыбу от чешуи. Вам не придется морщиться от запаха сырой рыбы. Мы даже можем убрать из рыбы все кости.</p>
                 <div class="border"></div>
-                <p>Lorem ipsum dolor sit, consetetur sadipscing elitr, diam nonumy eirmod tempor invidunt ut labore.</p>
-                <ul class="list-inline">
-                  <li>
-                    <a href="http://www.dribbble.com" title="Dribbble">
-                      <i class="fa fa-dribbble"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.pinterest.com" title="Pinterest">
-                      <i class="fa fa-pinterest"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.instagram.com" title="Instagram">
-                      <i class="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12 teammate animated hiding" data-animation="fadeInUp" data-delay="300">
-              <div class="photo-rounded">
-                <img class="img-responsive" src="assets/img/team/3.jpg" alt="">
-              </div>
-              <div class="bio">
-                <h4>Mandeep Eimear</h4>
-                <h5>Mobile Developer</h5>
+            <div class="col-md-4">
+                <h3>Мы следим за прогрессом в диетологии</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/science.jpg' %}" alt="">
+                </div>
+                <p>Мы пишем статьи, активно изучаем иностранную литературу и новые течения в области диетологии.</p>
                 <div class="border"></div>
-                <p>Lorem ipsum dolor sit, consetetur sadipscing elitr, diam nonumy eirmod tempor invidunt ut labore.</p>
-                <ul class="list-inline">
-                  <li>
-                    <a href="http://www.twitter.com" title="Twitter">
-                      <i class="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://developer.android.com/index.html" title="Android Developers">
-                      <i class="fa fa-android"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.stackoverflow.com" title="Stack Overflow">
-                      <i class="fa fa-stack-overflow"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12 teammate animated hiding" data-animation="fadeInRight" data-delay="600">
-              <div class="photo-rounded">
-                <img class="img-responsive" src="assets/img/team/4.jpg" alt="">
-              </div>
-              <div class="bio">
-                <h4>Wigstan Fergus</h4>
-                <h5>QA Engineer</h5>
-                <div class="border"></div>
-                <p>Lorem ipsum dolor sit, consetetur sadipscing elitr, diam nonumy eirmod tempor invidunt ut labore.</p>
-                <ul class="list-inline">
-                  <li>
-                    <a href="http://www.plus.google.com" title="Google+">
-                      <i class="fa fa-google-plus"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.trello.com" title="Trello">
-                      <i class="fa fa-trello"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="mailto:john.doe@mail.com" title="Email">
-                      <i class="fa fa-envelope"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="twitter text-center">
-        <div class="animated hiding" data-animation="fadeIn">
-          <i class="fa fa-twitter fa-3x"></i>
-          <div id="feed"></div>
-        </div>
-      </div>
-    </section>
-    <section id="contact" class="page">
-      <div class="container">
-        <div class="content cover text-center">
-          <div class="heading">
-            <h2>Getting in touch.</h2>
-            <div class="border"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
           </div>
           <div class="row">
-            <div class="col-lg-4 animated hiding" data-animation="fadeInRight" data-delay="600">
-              <i class="fa fa-map-marker fa-3x"></i>
-              <a href="#">Mostar, Bosnia and Herzegovina</a>
+            <div class="col-md-4">
+                <h3>Свежие ингридиенты</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/fresh.jpg' %}" alt="">
+                </div>
+                <p>Поскольку мы за день до срока доставки знаем что вы будете есть, продукты приобретаются в день доставки.</p>
+                <div class="border"></div>
             </div>
-            <div class="col-lg-4 animated hiding" data-animation="fadeInDown" data-delay="300">
-              <i class="fa fa-phone fa-3x"></i>
-              <a href="tel:9876543210">(987) 654-3210</a>
+            <div class="col-md-4">
+                <h3>Индивидуальный подход</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/personal.jpg' %}" alt="">
+                </div>
+                <p>Мы учитываем ваши предпочтения в пище, вы можете выбрать что вы не едите, составив черный список продуктов. Например, вы можете отказаться от жареного. При каждом заказе мы будем учитывать ваши пожелания.</p>
+                <div class="border"></div>
             </div>
-            <div class="col-lg-4 animated hiding" data-animation="fadeInLeft" data-delay="600">
-              <i class="fa fa-envelope fa-3x"></i>
-              <a href="mailto:john.doe@mail.com">john.doe@mail.com</a>
+            <div class="col-md-4">
+                <h3>Доступность</h3>
+                <div class="photo-rounded">
+                  <img class="img-responsive center-block" src="{% static 'frontend/img/index_fitures/affordable.jpg' %}" alt="">
+                </div>
+                <p>Наша бизнес-модель позволяет нам экономить на аренде, поскольку работа с доставкой не требует размещения в видном месте в самом центре города. Наша система логистики позволяет составить оптимальный маршрут доставки, достигая рекордной в Перми точности доставки в {% flatblock 'index_delivery_precision' using 'flatblocks/row.html' %}.</p>
+                <div class="border"></div>
             </div>
+          </div>
+          <div class="row">
+            <button class="btn btn-danger btn-lg" disabled="disabled">Заказать</button>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="container" id="main_text">
-        <h2>Умный сервис доставки здоровой пищи в Перми. Мы считаем калории за вас.<h2>
-        <h2>Здоровое питание в Перми</h2>
-
-        <h3>Рацион составленный профессональными диетологами<h3>
-        <h3>Подсчет каллорий, микро и макро-нутриентов.</h3>
-
-        <h3>Открытие июль-август 2014</h3>
-
-        {% lorem 10 p %}
-
-    </div>
 {% endblock %}
 {% block extrajs %}
 {% endblock %}

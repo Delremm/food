@@ -9,9 +9,9 @@
         <title>{% block title %}{% flatblock 'default_title' using 'flatblocks/row.html' %}{% endblock %}</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" 
+        <meta name="description"
             content="{% block description %}{% flatblock 'default_description' using 'flatblocks/row.html' %}{% endblock %}" />
-        <meta name="keywords" 
+        <meta name="keywords"
             content="{% flatblock 'prepend_keywords' using 'flatblocks/row.html' %} {% block keywords %}{% endblock %}" />
         <meta name="viewport" content="{% block viewport %}width=device-width, initial-scale=1.0{% endblock %}">
 
@@ -22,7 +22,6 @@
         {% block styles %}
             <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
             <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-            <!-- <link rel="stylesheet" type="text/css" href="{% static "frontend/css/styles.css" %}" /> -->
             <link rel="stylesheet" type="text/css" href="{% static "frontend/css/sticky-footer-navbar.css" %}" />
             <link rel="stylesheet" type="text/css" href="{% static "frontend/css/animate.min.css" %}" />
         {% endblock %}
@@ -30,6 +29,10 @@
 
         {# Additional CSS, meta - specific to certain pages #}
         {% block extrahead %}{% endblock %}
+        {% block tracking %}
+            <!-- analytics -->
+            {% sitemetrics %}
+        {% endblock %}
     </head>
 
     <body {% block body_attrs %}{% endblock %}>
@@ -45,12 +48,6 @@
             {% block footer %}
                 {% include "partials/footer.html" %}
             {% endblock %}
-        {% endblock %}
-
-        {% block tracking %}
-            <!-- analytics -->
-            {# Default to using Google analytics #}
-            {% sitemetrics %}
         {% endblock %}
 
         {% block cdn_scripts %}

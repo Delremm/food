@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "flatpages.flatpage", "fields": {"sites": [1], "content": "email: mailbox@wisemeal.ru\r\n", "registration_required": false, "url": "/contacts/", "enable_comments": false, "title": "\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b", "template_name": ""}}]
