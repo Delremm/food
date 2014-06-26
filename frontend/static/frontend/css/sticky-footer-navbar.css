@@ -44,7 +44,7 @@ h6 { font-weight: 300 }
   padding: 40px 0;
   color: #ccc;
   text-align: center;
-  background-color: #FF3300;
+  background-color: #F42D32;
 }
 #footer a,
 #footer a:hover,
@@ -92,23 +92,24 @@ h6 { font-weight: 300 }
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li.active {
     outline: 0;
-    background-color: rgba(255,255,255,.2);
+    background-color: #F42D32;
 }
 
 .navbar-toggle {
     padding: 4px 6px;
     font-size: 16px;
-    color: #fff;
+    color: #F42D32;
 }
 
 .navbar-toggle:focus,
 .navbar-toggle:active {
     outline: 0;
+    color: #F42D32;
 }
 
 
 .navbar-custom {
-    background-color: #FF3300;
+    background-color: #F42D32;
 }
 
 

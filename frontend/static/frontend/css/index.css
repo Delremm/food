@@ -16,7 +16,7 @@
     .top-nav-collapse {
         padding: 0;
         /*background-color: #000;*/
-        background-color: #FF3300;
+        background-color: #F42D32;
     }
 
     .navbar-custom.top-nav-collapse {
@@ -41,7 +41,7 @@
 
     /* Ensure the html element always takes up the full height of the browser window */
     /*min-height:50%;*/
-    
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -74,14 +74,14 @@
     font-weight: 100;
 }
 
-#headerwrap .social a { 
+#headerwrap .social a {
     color: rgba(0,0,0,.6);
 }
 
 .textboard-grey {
     background-color: rgba(255,255,255,.9);
     border-radius: 15px;
-} 
+}
 
 
 
