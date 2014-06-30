@@ -25,7 +25,7 @@ angular.module('foodApp.controllers', []).controller(
     $scope.add_to_cart = function(menu){
         $http.get('/api/add_to_cart/', config={params: {item_to_add:  JSON.stringify({id: menu.id, cals: menu.cals})}}).success(function(data, status) {
             $scope.status = status;
-            $scope.message = 'Добавлено в корзину';
+            $scope.message = '';
             $scope.refresh_cart();
             $('body').removeClass('wait');
         }).
@@ -60,4 +60,20 @@ angular.module('foodApp.controllers', []).controller(
             return true
         };
     };
+    $scope.get_menu_type_verbose = function(menu_type){
+        if (menu_type=='BR'){
+            return 'Завтрак'
+        };
+        if (menu_type=="DI"){
+            return "Обед"
+        };
+        if (menu_type=="LU"){
+            return "Ужин"
+        } else {
+            return "Еда"
+        };
+    };
+    $scope.get_dishes = function(dishes){
+        ;
+    }
 }]);

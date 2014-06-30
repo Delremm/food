@@ -112,7 +112,13 @@ body.wait *, body.wait
     cursor: progress !important;
 }
 
-.grey {
+.red-background {
   background-color: #F42D32;
   border-radius: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    .custom-modal {
+        width: 70%; /* either % (e.g. 60%) or px (400px) */
+    }
 }

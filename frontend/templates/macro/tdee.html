@@ -4,7 +4,7 @@
 {% block body_attrs %}ng-app="macroApp"{% endblock %}
 {% block content %}
 <div class="container">
-    <div class="row">
+    <div class="row" id="macro_app" >
         <h2>Расчет дневной потребности в калориях(TDEE)</h2>
         {% verbatim %}
             <div ng-controller="MacroTdeeCtrl">
@@ -130,8 +130,9 @@
         {% endverbatim %}
     </div>
     <div class="row">
-        <div class="col-md-1 col-md-offset-6">
-        <a href="{% url 'home' %}" class="btn btn-primary pull-right">Перейти на главную</a>
+        <div class="text-center">
+        <a href="{% url 'home' %}" class="btn btn-default">На главную</a>
+        <a href="{% url 'apps:order' %}" class="btn btn-success">К заказу</a>
         </div>
     </div>
     <br>

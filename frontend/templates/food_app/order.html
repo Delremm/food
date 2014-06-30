@@ -12,14 +12,20 @@
         <div class="col-md-9">
           <h2>Составление заказа</h2>
           <p ng-if="order_options.order_cals_min">Минимальный заказ: {[{order_options.order_cals_min}]} калорий.</p>
+
+          <div>
+            <a href="/apps/macro#macro_app">Посчитать дневную норму калорий</a>
+          </div>
+
           <mark>{[{message}]}</mark>
           <div ng-repeat="menu in menus">
             <div ng-if="menu[0]">
               <h3 class="text-center">{[{ menu[1] }]}</h3>
-              <div class="row">
+              <div class="row text-center">
                 <div class="col-md-6" ng-repeat="menu_variant in menu[0]">
+                  <h4>номер #{[{ menu_variant.id }]}</h4>
                   <div ng-repeat="dish in menu_variant.dishes">
-                    {[{ dish }]}
+                    {[{ dish.title }]}
                   </div>
                   <div class="form-inline" role="form">
                     <div class="form-group">
@@ -28,7 +34,6 @@
                     </div>
                     <button class="add_to_order btn btn-default" menu-id="{{ menu_variant.id }}" ng-disabled="!menu_variant.cals" ng-click="add_to_cart(menu_variant)">добавить</button>
                     <span ng-if="menu_variant.calculated_price">{[{ menu_variant.calculated_price }]}руб.</span>
-                    <span>{[{ menu_variant }]}</span>
                   </div>
                 </div>
               </div>
@@ -38,20 +43,20 @@
         </div>
         <div class="col-md-3">
           <div id="cart" class="row text-center" data-spy="affix">
-            <h3 class="grey">Корзина</h3>
+            <h3 class="red-background">Корзина</h3>
             <p ng-if="!cart&&cart_is_ready">В конзине пусто</p>
             <div>
               <table class="table">
               <tr ng-repeat="item in cart">
-                <td>{[{ item.menu.id }]}</td> <td>x{[{item.quantity}]}</td> <td>{[{item.cals}]}кал.</td>
+                <td>{[{get_menu_type_verbose(item.menu.menu_type) }]} #{[{ item.menu.id }]}</td> <td>x{[{item.quantity}]}</td> <td>{[{item.cals}]}кал.</td>
                 <td>{[{ item.price }]}руб.</td>
               </tr>
               </table>
               <p ng-if="cart_total">
               Сумма: {[{ cart_total }]}руб.
               </p>
-              <a href="#" class="btn btn-success" ng-disabled="cart_is_empty">Оформить</a>
-              <a href="#" class="btn btn-default" ng-click="clear_cart()" ng-disabled="cart_is_empty">очистить</a>
+              <a href="#" class="btn btn-success" ng-disabled="!cart[0]">Оформить</a>
+              <a href="#" class="btn btn-default" ng-click="clear_cart()" ng-disabled="!cart[0]">очистить</a>
             </div>
           </div>
         </div>

@@ -17,8 +17,8 @@ def validate_item_to_add(item_to_add):
     if ('id' in item_to_add) and ('cals' in item_to_add):
         if type(item_to_add['id']) == builtins.int:
             if (type(item_to_add['cals']) == builtins.int) and (
-                    settings.MIN_CALS_DELIVERY < item_to_add[
-                        'cals'] < settings.MAX_CALS_DELIVERY):
+                    settings.MIN_CALS_DELIVERY <= item_to_add[
+                        'cals'] <= settings.MAX_CALS_DELIVERY):
                 ret = True
     return ret
 
