@@ -5,14 +5,11 @@
  * - change fonts
  */
 
-
-
 html,
 body {
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
 }
-
 
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=cyrillic-ext,latin);
 
@@ -50,17 +47,7 @@ h6 { font-weight: 300 }
 #footer a:hover,
 #footer a:focus { color: #fff }
 #footer .social { margin-bottom: 20px }
-/*#footer .social li .facebook:hover,
-#footer .social li .facebook:focus { color: #3b5998 }
-#footer .social li .twitter:hover,
-#footer .social li .twitter:focus { color: #00aced }
-#footer .social li .google-plus:hover,
-#footer .social li .google-plus:focus { color: #d34836 }
-#footer .social li .dribbble:hover,
-#footer .social li .dribbble:focus { color: #ea4c89 }*/
 #footer .copyright { margin-bottom: 0 }
-
-
 
 .navbar {
     margin-bottom: 0;
@@ -107,13 +94,25 @@ h6 { font-weight: 300 }
     color: #F42D32;
 }
 
-
 .navbar-custom {
     background-color: #F42D32;
 }
 
-
-
-
 #wrap .social a:hover,
-#wrap .social a:focus { color: #FF3300 }
+#wrap .social a:focus { color: #F42D32 }
+
+/* Angular hide ng-cloak before it's loaded */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+
+body.wait *, body.wait
+{
+    cursor: progress !important;
+}
+
+.grey {
+  background-color: #F42D32;
+  border-radius: 15px;
+}

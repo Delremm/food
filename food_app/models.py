@@ -3,8 +3,11 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib import admin
+from django.conf import settings
 
 from filer.fields.image import FilerImageField
+from satchless.item import Item, StockedItem
+from django_prices.models import PriceField
 
 
 class Recipe(models.Model):
@@ -37,7 +40,7 @@ class Dish(models.Model):
         return self.title
 
 
-class Menu(models.Model):
+class Menu(models.Model, Item):
     LUNCH = 'LU'
     DINNER = 'DI'
     BREAKFAST = 'BR'
@@ -52,6 +55,8 @@ class Menu(models.Model):
     menu_type = models.CharField(
         max_length=2, choices=MENU_TYPE, default=LUNCH)
     dishes = models.ManyToManyField(Dish)
+    price = PriceField(
+        currency=settings.DEFAULT_CURRENCY, max_digits=10, decimal_places=4)
 
     def __str__(self):
         return str(self.date)

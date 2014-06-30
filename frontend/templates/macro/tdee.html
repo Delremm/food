@@ -137,3 +137,12 @@
     <br>
 </div>
 {% endblock %}
+
+{% block tailjs %}
+    {{ block.super }}
+    <!-- custom scripts -->
+    <script src="{% static "frontend/js/angular/macro_app/app.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "frontend/js/angular/macro_app/controllers.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "frontend/js/angular/macro_app/directives.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "frontend/js/angular/macro_app/services.js" %}" type="text/javascript" charset="utf-8"></script>
+{% endblock %}

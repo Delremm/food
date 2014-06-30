@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     "easy_thumbnails",
     "filer",
     'frontend',
+    'django_prices',
     'food_app',
     'sitemetrics',
     'south',
@@ -73,7 +74,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'food_app.cart.middleware.CartMiddleware',
 )
 
 ROOT_URLCONF = 'food.urls'
@@ -142,3 +144,5 @@ FORMEAL_CONF = {
 }
 
 DEFAULT_CURRENCY = 'RUB'
+MAX_CALS_DELIVERY = 4500
+MIN_CALS_DELIVERY = 300

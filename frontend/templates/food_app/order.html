@@ -1,63 +1,78 @@
-{% extends "base.html" %}
+{% extends 'angular_base.html' %}
 {% load flatblock_tags %}
 {% load staticfiles %}
 
-{% block content %}
+{% block body_attrs %}ng-app="foodApp"{% endblock %}
+{% block body_class %}wait{% endblock %}
 
-  <div class="container">
-    <h2>Составление заказа</h2>
-    <div>
-      {% for menu in menus %}
-        {% if menu.0 %}
-          <h3>{{ menu.1 }}</h3>
-          <div class="row">
-            <ul class="nav nav-tabs">
-            {% for menu_variant in menu.0 %}
-              <li class="active"><a href="#menuVariant_{{ menu_variant.id }}" data-toggle="tab">Вариант {{ forloop.counter }}</a></li>
-            {% endfor %}
-            </ul>
-            <div class="tab-content">
-            {% for menu_variant in menu.0 %}
-              <div class="tab-pane active" id="menuVariant_{{ menu_variant.id }}">
-                <div>
-              {% for dish in menu_variant.dishes.all %}
-                {{ dish }}
-              {% endfor %}
-                </div>
-                <div class="form-inline" role="form">
-                  <div class="form-group">
-                    <label class="sr-only" for="menuVariant_{{ menu_variant.id }}_cals">Email address</label>
-                    <input type="number" class="form-control" id="menuVariant_{{ menu_variant.id }}_cals" placeholder="Калорий" value="600" min="200">
+{% block content %}
+  <div class="container" ng-controller="CartCtrl">
+    <div ng-cloak>
+      <div class="row">
+        <div class="col-md-9">
+          <h2>Составление заказа</h2>
+          <p ng-if="order_options.order_cals_min">Минимальный заказ: {[{order_options.order_cals_min}]} калорий.</p>
+          <mark>{[{message}]}</mark>
+          <div ng-repeat="menu in menus">
+            <div ng-if="menu[0]">
+              <h3 class="text-center">{[{ menu[1] }]}</h3>
+              <div class="row">
+                <div class="col-md-6" ng-repeat="menu_variant in menu[0]">
+                  <div ng-repeat="dish in menu_variant.dishes">
+                    {[{ dish }]}
                   </div>
-                  <button class="add_to_order btn btn-default">добавить</button>
+                  <div class="form-inline" role="form">
+                    <div class="form-group">
+                      <label class="sr-only" for="menuVariant_{[{ menu_variant.id }]}_cals">Калории</label>
+                      <input type="number" class="form-control" id="menuVariant_{[{ menu_variant.id }]}_cals" placeholder="Калорий" min="{[{order_options.order_cals_min}]}" max="{[{order_options.order_cals_max}]}" ng-model="menu_variant.cals" ng-change="calc_price(menu_variant, menu_variant.cals)" integer>
+                    </div>
+                    <button class="add_to_order btn btn-default" menu-id="{{ menu_variant.id }}" ng-disabled="!menu_variant.cals" ng-click="add_to_cart(menu_variant)">добавить</button>
+                    <span ng-if="menu_variant.calculated_price">{[{ menu_variant.calculated_price }]}руб.</span>
+                    <span>{[{ menu_variant }]}</span>
+                  </div>
                 </div>
               </div>
-            {% endfor %}
+              <hr>
             </div>
           </div>
-        {% endif %}
-      {% endfor %}
+        </div>
+        <div class="col-md-3">
+          <div id="cart" class="row text-center" data-spy="affix">
+            <h3 class="grey">Корзина</h3>
+            <p ng-if="!cart&&cart_is_ready">В конзине пусто</p>
+            <div>
+              <table class="table">
+              <tr ng-repeat="item in cart">
+                <td>{[{ item.menu.id }]}</td> <td>x{[{item.quantity}]}</td> <td>{[{item.cals}]}кал.</td>
+                <td>{[{ item.price }]}руб.</td>
+              </tr>
+              </table>
+              <p ng-if="cart_total">
+              Сумма: {[{ cart_total }]}руб.
+              </p>
+              <a href="#" class="btn btn-success" ng-disabled="cart_is_empty">Оформить</a>
+              <a href="#" class="btn btn-default" ng-click="clear_cart()" ng-disabled="cart_is_empty">очистить</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+    {{ session.cart }}
     </div>
 
   </div>
 
-
 {% endblock %}
 
 {% block onbodyload %}
-    $('.add_to_order').click(function (e){
-      e.preventDefault();
-      var item = {id: "1", cals: $(this).parent().find('input')[0].value};
-      var as_dict = {item_to_add: item}
-      console.log(as_dict);
-      $.get( "{% url 'apps:food_api:add_to_cart' %}", {item_to_add: JSON.stringify(item)}, function( data ) {
-        if (data.success){
-          alert(data);
-        } else {
-          alert('failller');
-        };
-      }, "json");
-      var val = $(this).parent().find('input')[0].value;
-      //alert(val);
-    });
+{% endblock %}
+
+{% block tailjs %}
+    {{ block.super }}
+    <!-- custom scripts -->
+    <script src="{% static "frontend/js/angular/food_app/app.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "frontend/js/angular/food_app/controllers.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "frontend/js/angular/food_app/directives.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "frontend/js/angular/food_app/services.js" %}" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
