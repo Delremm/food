@@ -29,18 +29,20 @@ class SessionCartLine(cart.CartLine):
 
 
 class SessionCart(cart.Cart):
+    timestamp = None
 
     @classmethod
     def from_storage(cls, cart_data):
         cart = SessionCart()
-        print(cart_data['items'])
         for line_data in cart_data['items']:
             cart._state.append(SessionCartLine.from_storage(line_data))
+        cart.timestamp = cart_data['timestamp']
         return cart
 
     def for_storage(self):
         cart_data = {
-            'items': [i.for_storage() for i in self]}
+            'items': [i.for_storage() for i in self],
+            'timestamp': self.timestamp}
         return cart_data
 
     def create_line(self, product, quantity, data):

@@ -27,9 +27,7 @@ class AddToCartView(views.APIView):
     permission_classes = (permissions.AllowAny, )
 
     def get(self, request, format=None):
-        print('atiem to add:', request.GET)
         if 'item_to_add' in request.GET:
-            print(request.cart)
             try:
                 item_to_add = json.loads(request.GET['item_to_add'])
             except:
@@ -37,11 +35,9 @@ class AddToCartView(views.APIView):
             if not validate_item_to_add(item_to_add):
                 return Response('', status=status.HTTP_400_BAD_REQUEST)
             product_qs = Menu.objects.filter(id=item_to_add['id'])
-            print(product_qs)
             if product_qs:
                 request.cart.add(
                     product_qs[0], data={'cals': item_to_add['cals']}, replace=False)
-                print(request.cart)
             return Response('')
         else:
             return Response('', status=status.HTTP_400_BAD_REQUEST)
