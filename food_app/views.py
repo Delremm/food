@@ -40,3 +40,12 @@ class OrderView(TemplateView):
         context = self.get_context_data(**kwargs)
         response = self.render_to_response(context)
         return response
+
+
+class CheckoutView(TemplateView):
+    template_name = 'food_app/checkout.html'
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        response = self.render_to_response(context)
+        return response

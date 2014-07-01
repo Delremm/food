@@ -1,0 +1,37 @@
+{% extends 'angular_base.html' %}
+{% load flatblock_tags %}
+{% load staticfiles %}
+
+{% block body_attrs %}ng-app="foodApp"{% endblock %}
+{% block body_class %}wait{% endblock %}
+
+{% block content %}
+  <div class="container" ng-controller="CartCtrl">
+    <div ng-cloak>
+      <div class="row">
+        <div class="col-md-9">
+          <h2>Составление заказа</h2>
+        </div>
+        <div class="col-md-3">
+        </div>
+      </div>
+    </div>
+    <div>
+    {{ session.cart }}
+    </div>
+
+  </div>
+
+{% endblock %}
+
+{% block onbodyload %}
+{% endblock %}
+
+{% block tailjs %}
+    {{ block.super }}
+    <!-- custom scripts -->
+    <script src="{% static "frontend/js/angular/food_app/app.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "frontend/js/angular/food_app/controllers.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "frontend/js/angular/food_app/directives.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "frontend/js/angular/food_app/services.js" %}" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
